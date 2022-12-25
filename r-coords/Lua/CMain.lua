@@ -1,4 +1,11 @@
-local QBCore = exports["qb-core"]:GetCoreObject()
+local core = "esx" -- esx or qb 
+
+
+if (core == 'esx') then 
+    ESX = exports['es_extended']:getSharedObject()
+elseif ( core == 'qb' ) then 
+    QBCore = exports["qb-core"]:GetCoreObject()
+end
 
 RegisterCommand('coords', function() 
     OpenUI()
@@ -23,6 +30,10 @@ end)
   
 
 RegisterNUICallback('int:noty', function(data)
-    QBCore.Functions.Notify(data.noti)
+    if (core == 'esx') then 
+        ESX.ShowNotification(data.noti)
+    elseif ( core == 'qb' ) then 
+        QBCore.Functions.Notify(data.noti)
+    end
 end)
   
