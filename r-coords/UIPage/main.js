@@ -3,15 +3,18 @@ $(() => {
         let v = event.data
 
         if (v.type == "open") {
+            const { x, y, z } = v._charPos;
+            const heading = v._charHeading;
+            
             $('body').css('display', 'block')
 
             $('.all').append(` 
-                <div class="coords"> <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vector3(${v._charPos.x}, ${v._charPos.y}, ${v._charPos.z}) </span> </div>
-                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vector4(${v._charPos.x}, ${v._charPos.y}, ${v._charPos.z}, ${v._charHeading}) </span>  </div>
-                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > x = ${v._charPos.x}, y = ${v._charPos.y}, z = ${v._charPos.z} </span>  </div>
-                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > x = ${v._charPos.x}, y = ${v._charPos.y}, z = ${v._charPos.z}, h = ${v._charHeading} </span>  </div>
-                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vec3(${v._charPos.x}, ${v._charPos.y}, ${v._charPos.z}) </span>  </div>
-                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vec4(${v._charPos.x}, ${v._charPos.y}, ${v._charPos.z}, ${v._charHeading}) </span>  </div>
+                <div class="coords"> <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vector3(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)}) </span> </div>
+                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vector4(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)}, ${heading.toFixed(2)}) </span>  </div>
+                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > x = ${x.toFixed(2)}, y = ${y.toFixed(2)}, z = ${z.toFixed(2)} </span>  </div>
+                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > x = ${x.toFixed(2)}, y = ${y.toFixed(2)}, z = ${z.toFixed(2)}, h = ${heading.toFixed(2)} </span>  </div>
+                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vec3(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)}) </span>  </div>
+                <div class="coords">  <span id="copy"><i class="fa-solid fa-copy"></i></span> <span id="text" > vec4(${x.toFixed(2)}, ${y.toFixed(2)}, ${z.toFixed(2)}, ${heading.toFixed(2)}) </span>  </div>
                 
 
                 `) 
